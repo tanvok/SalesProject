@@ -8,11 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SalesProject.Controlles.CRUDControllers;
+using SalesProject.DataModel;
 
 namespace SalesProject
 {
     public partial class MainForm : Form
     {
+
+        private Operation CurrentOperation
+        {
+            get
+            {
+                return operationBindingSource.Current as Operation;
+            }
+        }
+
         public MainForm()
         {
             InitializeComponent();
@@ -33,6 +43,12 @@ namespace SalesProject
         private void tsbAddOperation_Click(object sender, EventArgs e)
         {
             CRUDOperation.Create();
+        }
+
+        private void operationBindingSource_PositionChanged(object sender, EventArgs e)
+        {
+
+            CRUDOperationContent.Read(operationContentBindingSource, CurrentOperation);
         }
     }
 }

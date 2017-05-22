@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -55,12 +56,6 @@
             this.EditEmployeeBtn = new System.Windows.Forms.ToolStripButton();
             this.DelEmployeeBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.dgvContent = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpProducts = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -75,6 +70,16 @@
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MeasureType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationContentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvOperContent = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idProductPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idOperationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tcMain.SuspendLayout();
             this.tpSalesList.SuspendLayout();
@@ -86,12 +91,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvOperations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.operationBindingSource)).BeginInit();
             this.toolStrip5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvContent)).BeginInit();
             this.tpProducts.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.operationContentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOperContent)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -206,7 +212,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.dgvContent);
+            this.splitContainer1.Panel2.Controls.Add(this.dgvOperContent);
             this.splitContainer1.Size = new System.Drawing.Size(723, 464);
             this.splitContainer1.SplitterDistance = 232;
             this.splitContainer1.TabIndex = 7;
@@ -289,6 +295,7 @@
             // operationBindingSource
             // 
             this.operationBindingSource.DataSource = typeof(SalesProject.DataModel.Operation);
+            this.operationBindingSource.PositionChanged += new System.EventHandler(this.operationBindingSource_PositionChanged);
             // 
             // toolStrip5
             // 
@@ -332,66 +339,6 @@
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 24);
-            // 
-            // dgvContent
-            // 
-            this.dgvContent.AllowUserToAddRows = false;
-            this.dgvContent.AllowUserToDeleteRows = false;
-            this.dgvContent.AutoGenerateColumns = false;
-            this.dgvContent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvContent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn8});
-            this.dgvContent.DataSource = this.operationBindingSource;
-            this.dgvContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvContent.Location = new System.Drawing.Point(0, 0);
-            this.dgvContent.Name = "dgvContent";
-            this.dgvContent.ReadOnly = true;
-            this.dgvContent.RowHeadersVisible = false;
-            this.dgvContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvContent.Size = new System.Drawing.Size(723, 228);
-            this.dgvContent.TabIndex = 6;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "OperationType";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Тип операции";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Payment";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Оплата";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Delivery";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Сдача";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "idOperationType";
-            this.dataGridViewTextBoxColumn8.HeaderText = "idOperationType";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Visible = false;
             // 
             // tpProducts
             // 
@@ -524,6 +471,99 @@
             this.Balance.Name = "Balance";
             this.Balance.ReadOnly = true;
             // 
+            // operationContentBindingSource
+            // 
+            this.operationContentBindingSource.DataSource = typeof(SalesProject.DataModel.OperationContent);
+            // 
+            // dgvOperContent
+            // 
+            this.dgvOperContent.AllowUserToAddRows = false;
+            this.dgvOperContent.AllowUserToDeleteRows = false;
+            this.dgvOperContent.AutoGenerateColumns = false;
+            this.dgvOperContent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOperContent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.idProductPriceDataGridViewTextBoxColumn,
+            this.idOperationDataGridViewTextBoxColumn,
+            this.ProductPrice,
+            this.countDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn2,
+            this.Count,
+            this.operationDataGridViewTextBoxColumn});
+            this.dgvOperContent.DataSource = this.operationContentBindingSource;
+            this.dgvOperContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvOperContent.Location = new System.Drawing.Point(0, 0);
+            this.dgvOperContent.Name = "dgvOperContent";
+            this.dgvOperContent.ReadOnly = true;
+            this.dgvOperContent.RowHeadersVisible = false;
+            this.dgvOperContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOperContent.Size = new System.Drawing.Size(723, 228);
+            this.dgvOperContent.TabIndex = 7;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // idProductPriceDataGridViewTextBoxColumn
+            // 
+            this.idProductPriceDataGridViewTextBoxColumn.DataPropertyName = "idProductPrice";
+            this.idProductPriceDataGridViewTextBoxColumn.HeaderText = "idProductPrice";
+            this.idProductPriceDataGridViewTextBoxColumn.Name = "idProductPriceDataGridViewTextBoxColumn";
+            this.idProductPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idProductPriceDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idOperationDataGridViewTextBoxColumn
+            // 
+            this.idOperationDataGridViewTextBoxColumn.DataPropertyName = "idOperation";
+            this.idOperationDataGridViewTextBoxColumn.HeaderText = "idOperation";
+            this.idOperationDataGridViewTextBoxColumn.Name = "idOperationDataGridViewTextBoxColumn";
+            this.idOperationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idOperationDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // ProductPrice
+            // 
+            this.ProductPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ProductPrice.DataPropertyName = "Product";
+            this.ProductPrice.HeaderText = "Название товара";
+            this.ProductPrice.Name = "ProductPrice";
+            this.ProductPrice.ReadOnly = true;
+            // 
+            // countDataGridViewTextBoxColumn
+            // 
+            this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
+            this.countDataGridViewTextBoxColumn.HeaderText = "Количество";
+            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            this.countDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Price";
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Цена";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // Count
+            // 
+            this.Count.DataPropertyName = "Cost";
+            this.Count.HeaderText = "Стоимость";
+            this.Count.Name = "Count";
+            this.Count.ReadOnly = true;
+            // 
+            // operationDataGridViewTextBoxColumn
+            // 
+            this.operationDataGridViewTextBoxColumn.DataPropertyName = "Operation";
+            this.operationDataGridViewTextBoxColumn.HeaderText = "Operation";
+            this.operationDataGridViewTextBoxColumn.Name = "operationDataGridViewTextBoxColumn";
+            this.operationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.operationDataGridViewTextBoxColumn.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -548,7 +588,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.operationBindingSource)).EndInit();
             this.toolStrip5.ResumeLayout(false);
             this.toolStrip5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvContent)).EndInit();
             this.tpProducts.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -556,6 +595,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.operationContentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOperContent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -589,12 +630,6 @@
         private System.Windows.Forms.ToolStripButton EditEmployeeBtn;
         private System.Windows.Forms.ToolStripButton DelEmployeeBtn;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.DataGridView dgvContent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource productBindingSource;
@@ -609,6 +644,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn MeasureType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Balance;
+        private System.Windows.Forms.BindingSource operationContentBindingSource;
+        private System.Windows.Forms.DataGridView dgvOperContent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProductPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idOperationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Count;
+        private System.Windows.Forms.DataGridViewTextBoxColumn operationDataGridViewTextBoxColumn;
     }
 }
 
