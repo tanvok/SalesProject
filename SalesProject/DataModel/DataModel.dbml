@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DBTest" Class="DataModelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ugtudb.ugtu.net;Initial Catalog=DBTest;Integrated Security=True" SettingsObjectName="SalesProject.Properties.Settings" SettingsPropertyName="DBTestConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.MeasureType" Member="MeasureTypes">
+    <Type Name="MeasureType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MeasureTypeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MeasureTypeSmallName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="MeasureType_Product" Member="Products" ThisKey="id" OtherKey="idMeasureType" Type="Product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductType" Member="ProductTypes">
+    <Type Name="ProductType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductTypeName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="idProductCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ProductType_Product" Member="Products" ThisKey="id" OtherKey="idProductType" Type="Product" />
+      <Association Name="ProductCategory_ProductType" Member="ProductCategory" ThisKey="idProductCategory" OtherKey="id" Type="ProductCategory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OperationState" Member="OperationStates">
+    <Type Name="OperationState">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OperationStateName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="OperationState_Operation" Member="Operations" ThisKey="id" OtherKey="idOperationState" Type="Operation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OperationType" Member="OperationTypes">
+    <Type Name="OperationType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OperationTypeName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="OperationType_Operation" Member="Operations" ThisKey="id" OtherKey="idOperationType" Type="Operation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="idProductType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idMeasureType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Size" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Balance" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Association Name="Product_ProductPrice" Member="ProductPrices" ThisKey="id" OtherKey="idProduct" Type="ProductPrice" />
+      <Association Name="MeasureType_Product" Member="MeasureType" ThisKey="idMeasureType" OtherKey="id" Type="MeasureType" IsForeignKey="true" />
+      <Association Name="ProductType_Product" Member="ProductType" ThisKey="idProductType" OtherKey="id" Type="ProductType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductCategory" Member="ProductCategories">
+    <Type Name="ProductCategory">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductCategoryName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="ProductCategory_ProductType" Member="ProductTypes" ThisKey="id" OtherKey="idProductCategory" Type="ProductType" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductPrice" Member="ProductPrices">
+    <Type Name="ProductPrice">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idProduct" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="ProductPrice_OperationContent" Member="OperationContents" ThisKey="id" OtherKey="idProductPrice" Type="OperationContent" />
+      <Association Name="Product_ProductPrice" Member="Product" ThisKey="idProduct" OtherKey="id" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OperationContent" Member="OperationContents">
+    <Type Name="OperationContent">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idProductPrice" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idOperation" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Count" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Association Name="ProductPrice_OperationContent" Member="ProductPrice" ThisKey="idProductPrice" OtherKey="id" Type="ProductPrice" IsForeignKey="true" />
+      <Association Name="Operation_OperationContent" Member="Operation" ThisKey="idOperation" OtherKey="id" Type="Operation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Operation" Member="Operations">
+    <Type Name="Operation">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OperationDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Payment" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Delivery" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="idOperationState" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idOperationType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DocNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Operation_OperationContent" Member="OperationContents" ThisKey="id" OtherKey="idOperation" Type="OperationContent" />
+      <Association Name="OperationState_Operation" Member="OperationState" ThisKey="idOperationState" OtherKey="id" Type="OperationState" IsForeignKey="true" />
+      <Association Name="OperationType_Operation" Member="OperationType" ThisKey="idOperationType" OtherKey="id" Type="OperationType" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
