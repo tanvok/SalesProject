@@ -35,5 +35,13 @@ namespace SalesProject.DataModel
                 return DataModelController.Instance.Model.ProductPrices.Where(x => ((x.Product == this) && (x.DateBegin <= DateTime.Today) && ((x.DateEnd >= DateTime.Today) || (x.DateEnd == null)))).ToArray().LastOrDefault();
             }
         }
+
+        public string MeasureSmallString
+        {
+            get
+            {
+                return Size > 0 ? "шт" : MeasureType.MeasureTypeSmallName;
+            }
+        }
     }
 }
