@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvOperContent = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idProductPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idOperationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,30 +49,36 @@
             this.btnUpdateContent = new System.Windows.Forms.Button();
             this.btnDeleteContent = new System.Windows.Forms.Button();
             this.tbProductCount = new System.Windows.Forms.MaskedTextBox();
+            this.btnCloseOperation = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnCancelOperation = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOperContent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.operationContentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.dgvOperContent);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(668, 167);
+            this.groupBox1.Size = new System.Drawing.Size(668, 211);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Список товаров";
             // 
-            // dataGridView1
+            // dgvOperContent
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvOperContent.AllowUserToAddRows = false;
+            this.dgvOperContent.AllowUserToDeleteRows = false;
+            this.dgvOperContent.AutoGenerateColumns = false;
+            this.dgvOperContent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOperContent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.idProductPriceDataGridViewTextBoxColumn,
             this.idOperationDataGridViewTextBoxColumn,
@@ -81,15 +87,16 @@
             this.dataGridViewTextBoxColumn1,
             this.Count,
             this.operationDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.operationContentBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(662, 148);
-            this.dataGridView1.TabIndex = 6;
+            this.dgvOperContent.DataSource = this.operationContentBindingSource;
+            this.dgvOperContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvOperContent.Location = new System.Drawing.Point(3, 16);
+            this.dgvOperContent.Name = "dgvOperContent";
+            this.dgvOperContent.ReadOnly = true;
+            this.dgvOperContent.RowHeadersVisible = false;
+            this.dgvOperContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOperContent.Size = new System.Drawing.Size(662, 192);
+            this.dgvOperContent.TabIndex = 6;
+            this.dgvOperContent.DoubleClick += new System.EventHandler(this.btnUpdateContent_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -133,9 +140,9 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Price";
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn1.HeaderText = "Цена";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -162,7 +169,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 177);
+            this.label4.Location = new System.Drawing.Point(3, 14);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 13);
             this.label4.TabIndex = 19;
@@ -177,15 +184,15 @@
             this.cbProduct.DataSource = this.productBindingSource;
             this.cbProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProduct.FormattingEnabled = true;
-            this.cbProduct.Location = new System.Drawing.Point(12, 195);
+            this.cbProduct.Location = new System.Drawing.Point(6, 30);
             this.cbProduct.Name = "cbProduct";
-            this.cbProduct.Size = new System.Drawing.Size(403, 21);
-            this.cbProduct.TabIndex = 18;
+            this.cbProduct.Size = new System.Drawing.Size(469, 21);
+            this.cbProduct.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 231);
+            this.label1.Location = new System.Drawing.Point(492, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 20;
@@ -193,68 +200,101 @@
             // 
             // btnAddContent
             // 
-            this.btnAddContent.Location = new System.Drawing.Point(12, 290);
+            this.btnAddContent.Location = new System.Drawing.Point(572, 68);
             this.btnAddContent.Name = "btnAddContent";
             this.btnAddContent.Size = new System.Drawing.Size(84, 23);
-            this.btnAddContent.TabIndex = 22;
-            this.btnAddContent.Text = "Добавить";
+            this.btnAddContent.TabIndex = 3;
+            this.btnAddContent.Text = "Ok";
             this.btnAddContent.UseVisualStyleBackColor = true;
             this.btnAddContent.Click += new System.EventHandler(this.btnAddContent_Click);
             // 
             // btnUpdateContent
             // 
-            this.btnUpdateContent.Location = new System.Drawing.Point(102, 290);
+            this.btnUpdateContent.Location = new System.Drawing.Point(464, 68);
             this.btnUpdateContent.Name = "btnUpdateContent";
             this.btnUpdateContent.Size = new System.Drawing.Size(102, 23);
-            this.btnUpdateContent.TabIndex = 23;
+            this.btnUpdateContent.TabIndex = 6;
             this.btnUpdateContent.Text = "Редактировать";
             this.btnUpdateContent.UseVisualStyleBackColor = true;
+            this.btnUpdateContent.Click += new System.EventHandler(this.btnUpdateContent_Click);
             // 
             // btnDeleteContent
             // 
-            this.btnDeleteContent.Location = new System.Drawing.Point(210, 290);
+            this.btnDeleteContent.Location = new System.Drawing.Point(356, 68);
             this.btnDeleteContent.Name = "btnDeleteContent";
             this.btnDeleteContent.Size = new System.Drawing.Size(102, 23);
-            this.btnDeleteContent.TabIndex = 24;
+            this.btnDeleteContent.TabIndex = 7;
             this.btnDeleteContent.Text = "Удалить";
             this.btnDeleteContent.UseVisualStyleBackColor = true;
+            this.btnDeleteContent.Click += new System.EventHandler(this.btnDeleteContent_Click);
             // 
             // tbProductCount
             // 
-            this.tbProductCount.Location = new System.Drawing.Point(12, 247);
+            this.tbProductCount.Location = new System.Drawing.Point(495, 31);
             this.tbProductCount.Name = "tbProductCount";
             this.tbProductCount.Size = new System.Drawing.Size(158, 20);
-            this.tbProductCount.TabIndex = 25;
+            this.tbProductCount.TabIndex = 2;
+            // 
+            // btnCloseOperation
+            // 
+            this.btnCloseOperation.Location = new System.Drawing.Point(532, 318);
+            this.btnCloseOperation.Name = "btnCloseOperation";
+            this.btnCloseOperation.Size = new System.Drawing.Size(133, 23);
+            this.btnCloseOperation.TabIndex = 4;
+            this.btnCloseOperation.Text = "Закрыть продажу";
+            this.btnCloseOperation.UseVisualStyleBackColor = true;
+            this.btnCloseOperation.Click += new System.EventHandler(this.btnCloseOperation_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tbProductCount);
+            this.groupBox2.Controls.Add(this.btnDeleteContent);
+            this.groupBox2.Controls.Add(this.cbProduct);
+            this.groupBox2.Controls.Add(this.btnUpdateContent);
+            this.groupBox2.Controls.Add(this.btnAddContent);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Location = new System.Drawing.Point(3, 217);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(662, 95);
+            this.groupBox2.TabIndex = 27;
+            this.groupBox2.TabStop = false;
+            // 
+            // btnCancelOperation
+            // 
+            this.btnCancelOperation.Location = new System.Drawing.Point(393, 318);
+            this.btnCancelOperation.Name = "btnCancelOperation";
+            this.btnCancelOperation.Size = new System.Drawing.Size(133, 23);
+            this.btnCancelOperation.TabIndex = 5;
+            this.btnCancelOperation.Text = "Отменить продажу";
+            this.btnCancelOperation.UseVisualStyleBackColor = true;
             // 
             // OperationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 399);
-            this.Controls.Add(this.tbProductCount);
-            this.Controls.Add(this.btnDeleteContent);
-            this.Controls.Add(this.btnUpdateContent);
-            this.Controls.Add(this.btnAddContent);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label4);
+            this.ClientSize = new System.Drawing.Size(668, 349);
+            this.Controls.Add(this.btnCancelOperation);
+            this.Controls.Add(this.btnCloseOperation);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.cbProduct);
+            this.Controls.Add(this.groupBox2);
             this.Name = "OperationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "OperationForm";
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOperContent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.operationContentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvOperContent;
         private System.Windows.Forms.BindingSource operationContentBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProductPriceDataGridViewTextBoxColumn;
@@ -272,5 +312,8 @@
         private System.Windows.Forms.Button btnUpdateContent;
         private System.Windows.Forms.Button btnDeleteContent;
         private System.Windows.Forms.MaskedTextBox tbProductCount;
+        private System.Windows.Forms.Button btnCloseOperation;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnCancelOperation;
     }
 }

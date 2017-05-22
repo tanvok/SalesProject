@@ -27,12 +27,18 @@ namespace SalesProject.Controlles.CRUDControllers
 
 
             DataModelController.Instance.Model.OperationContents.InsertOnSubmit(newContent);
-            Read(bindingSource, operation);
+            bindingSource.Add(newContent);
+        }
+
+        public static void Delete(OperationContent content)
+        {
+            if (content != null)
+                DataModelController.Instance.Model.OperationContents.DeleteOnSubmit(content);
         }
 
         public static void Read(BindingSource bindingSource, Operation operation)
         {
-            bindingSource.DataSource = DataModelController.Instance.Model.OperationContents.Where(x => x.Operation == operation).OrderByDescending(x => x.id).ToArray();
+            bindingSource.DataSource = DataModelController.Instance.Model.OperationContents.Where(x => x.Operation == operation).OrderByDescending(x => x.id);
         }
     }
 }
