@@ -17,6 +17,8 @@ namespace SalesProject.Controlles.CRUDControllers
                 OperationDateTime = DateTime.Now
             };
 
+            DataModelController.Instance.Model.Operations.InsertOnSubmit(newOperation);
+
             using (OperationForm operForm = new OperationForm(newOperation))
             {
                 operForm.ShowDialog();
@@ -26,7 +28,7 @@ namespace SalesProject.Controlles.CRUDControllers
         
         public static void Read(BindingSource operationBindingSource)
         {
-            operationBindingSource.DataSource = DataModelController.Instance.Model.Operations.OrderByDescending(x => x.OperationDateTime);
+            operationBindingSource.DataSource = DataModelController.Instance.Model.Operations.OrderByDescending(x => x.OperationDateTime).ToArray();
         }
 
             

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SalesProject.Controlles;
 
 namespace SalesProject.DataModel
 {
@@ -20,7 +21,7 @@ namespace SalesProject.DataModel
             }
             set
             {
-                ProductPrice.Product = value;
+                ProductPrice = value?.CurrentPrice;
             }
         }
 

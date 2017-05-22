@@ -22,7 +22,7 @@ namespace SalesProject
         private void tcMain_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tcMain.SelectedTab == tpProducts)
-                CRUDProduct.Read(productBindingSource);
+                CRUDProduct.Read(productBindingSource, false);
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
