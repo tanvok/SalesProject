@@ -107,7 +107,6 @@ namespace SalesProject.UI.Forms
                 updatedContent.ProductPrice = cbProductPrice.SelectedItem as ProductPrice ?? updatedContent.ProductPrice;
                 updatedContent.Count = tbProductCount.ValidateText() as decimal? ?? updatedContent.Count;
                 RefreshBindingSource(operationContentBindingSource);
-                
             }
             SetOperationContentData(null, 1);
             cbProductPrice.Select();
@@ -142,10 +141,12 @@ namespace SalesProject.UI.Forms
 
         private void DeleteCurrentContent()
         {
-            if (CurrentContent == null)
+            OperationContent deletedContent = CurrentContent;
+            if (deletedContent == null)
                 return;
-            operationContentBindingSource.RemoveCurrent();
-            CRUDOperationContent.Delete(CurrentContent);
+            operationContentBindingSource.Remove(deletedContent);
+            CRUDOperationContent.Delete(deletedContent);
+            deletedContent.IsDeleted = true;
             RefreshStateString();
         }
 
@@ -166,7 +167,7 @@ namespace SalesProject.UI.Forms
 
         private void tbPayment_Validated(object sender, EventArgs e)
         {
-            
+            tbDelivery.Text = (OperationController.CalcDelivery(Operation, tbPayment.ValidateText() as decimal? ?? 0)).ToString();
         }
     }
 }

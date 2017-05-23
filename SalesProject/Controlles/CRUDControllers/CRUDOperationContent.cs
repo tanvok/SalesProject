@@ -23,7 +23,8 @@ namespace SalesProject.Controlles.CRUDControllers
             {
                 ProductPrice = productPrice,
                 Count = productCount,
-                Operation = operation
+                Operation = operation,
+                IsDeleted = false
             };
 
 
@@ -41,12 +42,7 @@ namespace SalesProject.Controlles.CRUDControllers
 
         public static void Read(BindingSource bindingSource, Operation operation)
         {
-            bindingSource.DataSource = operation.OperationContent();
-        }
-
-        public static IEnumerable<OperationContent> OperationContent(this Operation operation)
-        {
-            return DataModelController.Instance.Model.OperationContents.Where(x => x.Operation == operation).OrderByDescending(x => x.id);
+            bindingSource.DataSource = DataModelController.Instance.Model.OperationContents.Where(x => x.Operation == operation).OrderByDescending(x => x.id);
         }
     }
 }

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -82,6 +83,7 @@
             this.DocNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OperationDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OperationState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Payment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paymentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deliveryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idOperationTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -248,6 +250,7 @@
             this.DocNumber,
             this.OperationDateTime,
             this.OperationState,
+            this.Payment,
             this.paymentDataGridViewTextBoxColumn,
             this.deliveryDataGridViewTextBoxColumn,
             this.idOperationTypeDataGridViewTextBoxColumn});
@@ -260,6 +263,7 @@
             this.dgvOperations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOperations.Size = new System.Drawing.Size(752, 464);
             this.dgvOperations.TabIndex = 5;
+            this.dgvOperations.DoubleClick += new System.EventHandler(this.EditOperationBtn_Click);
             // 
             // toolStrip5
             // 
@@ -590,6 +594,16 @@
             this.OperationState.Name = "OperationState";
             this.OperationState.ReadOnly = true;
             // 
+            // Payment
+            // 
+            this.Payment.DataPropertyName = "OperationCost";
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Payment.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Payment.HeaderText = "Сумма";
+            this.Payment.Name = "Payment";
+            this.Payment.ReadOnly = true;
+            // 
             // paymentDataGridViewTextBoxColumn
             // 
             this.paymentDataGridViewTextBoxColumn.DataPropertyName = "Payment";
@@ -704,6 +718,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DocNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn OperationDateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn OperationState;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Payment;
         private System.Windows.Forms.DataGridViewTextBoxColumn paymentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deliveryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idOperationTypeDataGridViewTextBoxColumn;

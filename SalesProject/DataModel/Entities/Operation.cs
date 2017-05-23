@@ -20,7 +20,7 @@ namespace SalesProject.DataModel
             get
             {
                 decimal operationSumm = 0;
-                foreach (OperationContent content in this.OperationContent())
+                foreach (var content in OperationContents?.Where(x => !x.IsDeleted))
                     operationSumm += content.Cost;
                 return operationSumm;
             }

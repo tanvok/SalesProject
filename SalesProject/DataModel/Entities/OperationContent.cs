@@ -37,6 +37,13 @@ namespace SalesProject.DataModel
             }
         }
 
+        /// <summary>
+        /// используется при добавлении операции
+        /// </summary>
+        public bool IsDeleted
+        {
+            get; set;
+        }
         
         #endregion
     }
