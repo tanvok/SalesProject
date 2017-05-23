@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SalesProject.Controlles;
+using SalesProject.Controlles.CRUDControllers;
 
 namespace SalesProject.DataModel
 {
@@ -10,7 +12,7 @@ namespace SalesProject.DataModel
     {
         public override string ToString()
         {
-            return OperationType.OperationTypeName + " №" + DocNumber + " от " + OperationDateTime.ToString() + " (" + OperationState.OperationStateName + ")";
+            return OperationType.OperationTypeName + " №" + id.ToString() + " от " + OperationDateTime.ToString() + " (" + OperationState.OperationStateName + ")";
         }
 
         public decimal OperationCost
@@ -18,7 +20,7 @@ namespace SalesProject.DataModel
             get
             {
                 decimal operationSumm = 0;
-                foreach (OperationContent content in OperationContents)
+                foreach (OperationContent content in this.OperationContent())
                     operationSumm += content.Cost;
                 return operationSumm;
             }

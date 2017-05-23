@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -45,12 +45,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvOperations = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paymentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deliveryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idOperationTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.tsbAddOperation = new System.Windows.Forms.ToolStripButton();
             this.EditEmployeeBtn = new System.Windows.Forms.ToolStripButton();
@@ -59,29 +53,38 @@
             this.tpProducts = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.operationContentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvOperContent = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idProductPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idOperationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MeasureType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idProductPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idOperationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationContentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.operationTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DocNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OperationDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OperationState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deliveryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idOperationTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tcMain.SuspendLayout();
             this.tpSalesList.SuspendLayout();
@@ -91,15 +94,15 @@
             this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOperations)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.operationBindingSource)).BeginInit();
             this.toolStrip5.SuspendLayout();
             this.tpProducts.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.operationContentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOperContent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.operationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.operationContentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -241,8 +244,10 @@
             this.dgvOperations.AutoGenerateColumns = false;
             this.dgvOperations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOperations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
             this.operationTypeDataGridViewTextBoxColumn,
+            this.DocNumber,
+            this.OperationDateTime,
+            this.OperationState,
             this.paymentDataGridViewTextBoxColumn,
             this.deliveryDataGridViewTextBoxColumn,
             this.idOperationTypeDataGridViewTextBoxColumn});
@@ -256,56 +261,14 @@
             this.dgvOperations.Size = new System.Drawing.Size(752, 464);
             this.dgvOperations.TabIndex = 5;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // operationTypeDataGridViewTextBoxColumn
-            // 
-            this.operationTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.operationTypeDataGridViewTextBoxColumn.DataPropertyName = "OperationType";
-            this.operationTypeDataGridViewTextBoxColumn.HeaderText = "Тип операции";
-            this.operationTypeDataGridViewTextBoxColumn.Name = "operationTypeDataGridViewTextBoxColumn";
-            this.operationTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // paymentDataGridViewTextBoxColumn
-            // 
-            this.paymentDataGridViewTextBoxColumn.DataPropertyName = "Payment";
-            this.paymentDataGridViewTextBoxColumn.HeaderText = "Оплата";
-            this.paymentDataGridViewTextBoxColumn.Name = "paymentDataGridViewTextBoxColumn";
-            this.paymentDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // deliveryDataGridViewTextBoxColumn
-            // 
-            this.deliveryDataGridViewTextBoxColumn.DataPropertyName = "Delivery";
-            this.deliveryDataGridViewTextBoxColumn.HeaderText = "Сдача";
-            this.deliveryDataGridViewTextBoxColumn.Name = "deliveryDataGridViewTextBoxColumn";
-            this.deliveryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idOperationTypeDataGridViewTextBoxColumn
-            // 
-            this.idOperationTypeDataGridViewTextBoxColumn.DataPropertyName = "idOperationType";
-            this.idOperationTypeDataGridViewTextBoxColumn.HeaderText = "idOperationType";
-            this.idOperationTypeDataGridViewTextBoxColumn.Name = "idOperationTypeDataGridViewTextBoxColumn";
-            this.idOperationTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idOperationTypeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // operationBindingSource
-            // 
-            this.operationBindingSource.DataSource = typeof(SalesProject.DataModel.Operation);
-            this.operationBindingSource.PositionChanged += new System.EventHandler(this.operationBindingSource_PositionChanged);
-            // 
             // toolStrip5
             // 
             this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbAddOperation,
             this.EditEmployeeBtn,
             this.DelEmployeeBtn,
-            this.toolStripSeparator5});
+            this.toolStripSeparator5,
+            this.toolStripButton5});
             this.toolStrip5.Location = new System.Drawing.Point(0, 0);
             this.toolStrip5.Name = "toolStrip5";
             this.toolStrip5.Size = new System.Drawing.Size(758, 24);
@@ -328,6 +291,7 @@
             this.EditEmployeeBtn.Size = new System.Drawing.Size(91, 21);
             this.EditEmployeeBtn.Text = "Редактировать";
             this.EditEmployeeBtn.ToolTipText = "Редактировать продажу";
+            this.EditEmployeeBtn.Click += new System.EventHandler(this.EditEmployeeBtn_Click);
             // 
             // DelEmployeeBtn
             // 
@@ -391,10 +355,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(752, 464);
             this.dataGridView1.TabIndex = 5;
             // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(SalesProject.DataModel.Product);
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -413,33 +373,29 @@
             // 
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(91, 17);
+            this.toolStripButton1.Size = new System.Drawing.Size(91, 21);
             this.toolStripButton1.Text = "Редактировать";
-            this.toolStripButton1.ToolTipText = "Редактировать сотрудника";
+            this.toolStripButton1.ToolTipText = "Редактировать ";
             // 
             // toolStripButton2
             // 
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Black;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(55, 17);
+            this.toolStripButton2.Size = new System.Drawing.Size(55, 21);
             this.toolStripButton2.Text = "Удалить";
-            this.toolStripButton2.ToolTipText = "Удалить сотрудника";
+            this.toolStripButton2.ToolTipText = "Удалить ";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 20);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 24);
             // 
             // toolStripButton3
             // 
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(126, 17);
+            this.toolStripButton3.Size = new System.Drawing.Size(126, 21);
             this.toolStripButton3.Text = "Выгрузить в MS Excel";
-            // 
-            // operationContentBindingSource
-            // 
-            this.operationContentBindingSource.DataSource = typeof(SalesProject.DataModel.OperationContent);
             // 
             // dgvOperContent
             // 
@@ -466,30 +422,6 @@
             this.dgvOperContent.Size = new System.Drawing.Size(758, 228);
             this.dgvOperContent.TabIndex = 7;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // idProductPriceDataGridViewTextBoxColumn
-            // 
-            this.idProductPriceDataGridViewTextBoxColumn.DataPropertyName = "idProductPrice";
-            this.idProductPriceDataGridViewTextBoxColumn.HeaderText = "idProductPrice";
-            this.idProductPriceDataGridViewTextBoxColumn.Name = "idProductPriceDataGridViewTextBoxColumn";
-            this.idProductPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idProductPriceDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idOperationDataGridViewTextBoxColumn
-            // 
-            this.idOperationDataGridViewTextBoxColumn.DataPropertyName = "idOperation";
-            this.idOperationDataGridViewTextBoxColumn.HeaderText = "idOperation";
-            this.idOperationDataGridViewTextBoxColumn.Name = "idOperationDataGridViewTextBoxColumn";
-            this.idOperationDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idOperationDataGridViewTextBoxColumn.Visible = false;
-            // 
             // ProductPrice
             // 
             this.ProductPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -498,19 +430,12 @@
             this.ProductPrice.Name = "ProductPrice";
             this.ProductPrice.ReadOnly = true;
             // 
-            // countDataGridViewTextBoxColumn
-            // 
-            this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
-            this.countDataGridViewTextBoxColumn.HeaderText = "Количество";
-            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
-            this.countDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Price";
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn2.HeaderText = "Цена";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -521,30 +446,6 @@
             this.Count.HeaderText = "Стоимость";
             this.Count.Name = "Count";
             this.Count.ReadOnly = true;
-            // 
-            // operationDataGridViewTextBoxColumn
-            // 
-            this.operationDataGridViewTextBoxColumn.DataPropertyName = "Operation";
-            this.operationDataGridViewTextBoxColumn.HeaderText = "Operation";
-            this.operationDataGridViewTextBoxColumn.Name = "operationDataGridViewTextBoxColumn";
-            this.operationDataGridViewTextBoxColumn.ReadOnly = true;
-            this.operationDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn3.HeaderText = "id";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // ProductType
-            // 
-            this.ProductType.DataPropertyName = "ProductType";
-            this.ProductType.HeaderText = "Вид продукта";
-            this.ProductType.Name = "ProductType";
-            this.ProductType.ReadOnly = true;
-            this.ProductType.Width = 150;
             // 
             // ProductName
             // 
@@ -581,7 +482,135 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(63, 21);
             this.toolStripButton4.Text = "Добавить";
-            this.toolStripButton4.ToolTipText = "Добавить продажу";
+            this.toolStripButton4.ToolTipText = "Добавить ";
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Black;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(68, 21);
+            this.toolStripButton5.Text = "Отменить ";
+            this.toolStripButton5.ToolTipText = "Отменить продажу";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn3.HeaderText = "id";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Visible = false;
+            this.dataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // operationBindingSource
+            // 
+            this.operationBindingSource.DataSource = typeof(SalesProject.DataModel.Operation);
+            this.operationBindingSource.PositionChanged += new System.EventHandler(this.operationBindingSource_PositionChanged);
+            // 
+            // idProductPriceDataGridViewTextBoxColumn
+            // 
+            this.idProductPriceDataGridViewTextBoxColumn.DataPropertyName = "idProductPrice";
+            this.idProductPriceDataGridViewTextBoxColumn.HeaderText = "idProductPrice";
+            this.idProductPriceDataGridViewTextBoxColumn.Name = "idProductPriceDataGridViewTextBoxColumn";
+            this.idProductPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idProductPriceDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idOperationDataGridViewTextBoxColumn
+            // 
+            this.idOperationDataGridViewTextBoxColumn.DataPropertyName = "idOperation";
+            this.idOperationDataGridViewTextBoxColumn.HeaderText = "idOperation";
+            this.idOperationDataGridViewTextBoxColumn.Name = "idOperationDataGridViewTextBoxColumn";
+            this.idOperationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idOperationDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // countDataGridViewTextBoxColumn
+            // 
+            this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
+            this.countDataGridViewTextBoxColumn.HeaderText = "Количество";
+            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            this.countDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // operationDataGridViewTextBoxColumn
+            // 
+            this.operationDataGridViewTextBoxColumn.DataPropertyName = "Operation";
+            this.operationDataGridViewTextBoxColumn.HeaderText = "Operation";
+            this.operationDataGridViewTextBoxColumn.Name = "operationDataGridViewTextBoxColumn";
+            this.operationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.operationDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // operationContentBindingSource
+            // 
+            this.operationContentBindingSource.DataSource = typeof(SalesProject.DataModel.OperationContent);
+            // 
+            // ProductType
+            // 
+            this.ProductType.DataPropertyName = "ProductType";
+            this.ProductType.HeaderText = "Вид продукта";
+            this.ProductType.Name = "ProductType";
+            this.ProductType.ReadOnly = true;
+            this.ProductType.Width = 150;
+            // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(SalesProject.DataModel.Product);
+            // 
+            // operationTypeDataGridViewTextBoxColumn
+            // 
+            this.operationTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.operationTypeDataGridViewTextBoxColumn.DataPropertyName = "OperationType";
+            this.operationTypeDataGridViewTextBoxColumn.HeaderText = "Тип операции";
+            this.operationTypeDataGridViewTextBoxColumn.Name = "operationTypeDataGridViewTextBoxColumn";
+            this.operationTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // DocNumber
+            // 
+            this.DocNumber.DataPropertyName = "id";
+            this.DocNumber.HeaderText = "Номер документа";
+            this.DocNumber.Name = "DocNumber";
+            this.DocNumber.ReadOnly = true;
+            // 
+            // OperationDateTime
+            // 
+            this.OperationDateTime.DataPropertyName = "OperationDateTime";
+            this.OperationDateTime.HeaderText = "Дата/Время";
+            this.OperationDateTime.Name = "OperationDateTime";
+            this.OperationDateTime.ReadOnly = true;
+            // 
+            // OperationState
+            // 
+            this.OperationState.DataPropertyName = "OperationState";
+            this.OperationState.HeaderText = "Статус";
+            this.OperationState.Name = "OperationState";
+            this.OperationState.ReadOnly = true;
+            // 
+            // paymentDataGridViewTextBoxColumn
+            // 
+            this.paymentDataGridViewTextBoxColumn.DataPropertyName = "Payment";
+            this.paymentDataGridViewTextBoxColumn.HeaderText = "Оплата";
+            this.paymentDataGridViewTextBoxColumn.Name = "paymentDataGridViewTextBoxColumn";
+            this.paymentDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // deliveryDataGridViewTextBoxColumn
+            // 
+            this.deliveryDataGridViewTextBoxColumn.DataPropertyName = "Delivery";
+            this.deliveryDataGridViewTextBoxColumn.HeaderText = "Сдача";
+            this.deliveryDataGridViewTextBoxColumn.Name = "deliveryDataGridViewTextBoxColumn";
+            this.deliveryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idOperationTypeDataGridViewTextBoxColumn
+            // 
+            this.idOperationTypeDataGridViewTextBoxColumn.DataPropertyName = "idOperationType";
+            this.idOperationTypeDataGridViewTextBoxColumn.HeaderText = "idOperationType";
+            this.idOperationTypeDataGridViewTextBoxColumn.Name = "idOperationTypeDataGridViewTextBoxColumn";
+            this.idOperationTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idOperationTypeDataGridViewTextBoxColumn.Visible = false;
             // 
             // MainForm
             // 
@@ -604,18 +633,18 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOperations)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.operationBindingSource)).EndInit();
             this.toolStrip5.ResumeLayout(false);
             this.toolStrip5.PerformLayout();
             this.tpProducts.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.operationContentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOperContent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.operationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.operationContentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -637,11 +666,6 @@
         private System.Windows.Forms.TabPage tpProducts;
         private System.Windows.Forms.DataGridView dgvOperations;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn operationTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn paymentDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idOperationTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource operationBindingSource;
         private System.Windows.Forms.ToolStripMenuItem создатьПродажуToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
@@ -675,6 +699,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Balance;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn operationTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OperationDateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OperationState;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paymentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idOperationTypeDataGridViewTextBoxColumn;
     }
 }
 

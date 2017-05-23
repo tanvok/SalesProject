@@ -27,12 +27,21 @@ namespace SalesProject
         {
             InitializeComponent();
             Text = "Продажи (" + DateTime.Today.ToShortDateString() + ")";
+            tcMain_SelectedIndexChanged(null, null);
         }
 
         private void tcMain_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tcMain.SelectedTab == tpProducts)
                 CRUDProduct.Read(productBindingSource);
+
+            if (tcMain.SelectedTab == tpSalesList)
+                LoadOperations();
+        }
+
+        private void LoadOperations()
+        {
+            CRUDOperation.Read(operationBindingSource);
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -43,12 +52,18 @@ namespace SalesProject
         private void tsbAddOperation_Click(object sender, EventArgs e)
         {
             CRUDOperation.Create();
+            LoadOperations();
         }
 
         private void operationBindingSource_PositionChanged(object sender, EventArgs e)
         {
 
             CRUDOperationContent.Read(operationContentBindingSource, CurrentOperation);
+        }
+
+        private void EditEmployeeBtn_Click(object sender, EventArgs e)
+        {
+            LoadOperations();
         }
     }
 }

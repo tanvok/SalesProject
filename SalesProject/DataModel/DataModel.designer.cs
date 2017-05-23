@@ -1574,8 +1574,6 @@ namespace SalesProject.DataModel
 		
 		private int _idOperationType;
 		
-		private string _DocNumber;
-		
 		private EntitySet<OperationContent> _OperationContents;
 		
 		private EntityRef<OperationState> _OperationState;
@@ -1598,8 +1596,6 @@ namespace SalesProject.DataModel
     partial void OnidOperationStateChanged();
     partial void OnidOperationTypeChanging(int value);
     partial void OnidOperationTypeChanged();
-    partial void OnDocNumberChanging(string value);
-    partial void OnDocNumberChanged();
     #endregion
 		
 		public Operation()
@@ -1734,26 +1730,6 @@ namespace SalesProject.DataModel
 					this._idOperationType = value;
 					this.SendPropertyChanged("idOperationType");
 					this.OnidOperationTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNumber", DbType="VarChar(50)")]
-		public string DocNumber
-		{
-			get
-			{
-				return this._DocNumber;
-			}
-			set
-			{
-				if ((this._DocNumber != value))
-				{
-					this.OnDocNumberChanging(value);
-					this.SendPropertyChanging();
-					this._DocNumber = value;
-					this.SendPropertyChanged("DocNumber");
-					this.OnDocNumberChanged();
 				}
 			}
 		}

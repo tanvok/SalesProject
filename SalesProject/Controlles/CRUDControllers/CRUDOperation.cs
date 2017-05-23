@@ -8,6 +8,7 @@ namespace SalesProject.Controlles.CRUDControllers
 { 
     static class CRUDOperation
     {
+        
         public static void Create()
         {
             Operation newOperation = new Operation()

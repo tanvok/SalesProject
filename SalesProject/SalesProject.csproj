@@ -62,6 +62,8 @@
     </Compile>
     <Compile Include="DataModel\Entities\Operation.cs" />
     <Compile Include="DataModel\Entities\OperationContent.cs" />
+    <Compile Include="DataModel\Entities\OperationState.cs" />
+    <Compile Include="DataModel\Entities\OperationType.cs" />
     <Compile Include="DataModel\Entities\Product.cs" />
     <Compile Include="DataModel\Entities\ProductPrice.cs" />
     <Compile Include="DataModel\Entities\ProductType.cs" />

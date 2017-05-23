@@ -80,7 +80,6 @@
       <Column Name="Delivery" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="idOperationState" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="idOperationType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DocNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="Operation_OperationContent" Member="OperationContents" ThisKey="id" OtherKey="idOperation" Type="OperationContent" />
       <Association Name="OperationState_Operation" Member="OperationState" ThisKey="idOperationState" OtherKey="id" Type="OperationState" IsForeignKey="true" />
       <Association Name="OperationType_Operation" Member="OperationType" ThisKey="idOperationType" OtherKey="id" Type="OperationType" IsForeignKey="true" />

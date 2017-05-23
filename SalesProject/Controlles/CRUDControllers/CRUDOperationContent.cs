@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using SalesProject.UI.Forms;
 using SalesProject.Controlles;
 using System;
+using System.Collections.Generic;
 
 namespace SalesProject.Controlles.CRUDControllers
 {
@@ -30,6 +31,8 @@ namespace SalesProject.Controlles.CRUDControllers
             bindingSource.Add(newContent);
         }
 
+        
+
         public static void Delete(OperationContent content)
         {
             if (content != null)
@@ -38,7 +41,12 @@ namespace SalesProject.Controlles.CRUDControllers
 
         public static void Read(BindingSource bindingSource, Operation operation)
         {
-            bindingSource.DataSource = DataModelController.Instance.Model.OperationContents.Where(x => x.Operation == operation).OrderByDescending(x => x.id);
+            bindingSource.DataSource = operation.OperationContent();
+        }
+
+        public static IEnumerable<OperationContent> OperationContent(this Operation operation)
+        {
+            return DataModelController.Instance.Model.OperationContents.Where(x => x.Operation == operation).OrderByDescending(x => x.id);
         }
     }
 }

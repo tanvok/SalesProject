@@ -31,6 +31,9 @@ namespace SalesProject.UI.Forms
             }
         }
 
+        private OperationContent updatedContent = null;
+
+
 
         #region LoadData
 
@@ -59,29 +62,51 @@ namespace SalesProject.UI.Forms
         #endregion
 
         #region SmallMethods
-        private void ReadOperationContentData()
+        
+        private void SetOperationContentData(ProductPrice productPrice, decimal count)
         {
-            if (CurrentContent == null)
-                return;
-            SetOperationContentData(CurrentContent.Product, CurrentContent.Count);
-        }
-
-        private void SetOperationContentData(Product product, decimal count)
-        {
-            cbProductPrice.SelectedItem = product?? cbProductPrice.SelectedItem;
+            cbProductPrice.SelectedItem = productPrice ?? cbProductPrice.SelectedItem;
             tbProductCount.Text = count.ToString();
         }
 
+        /*private decimal? GetOperationCost()
+        {
+            decimal operationSumm = 0;
+            IEnumerable<OperationContent> contents = operationContentBindingSource.DataSource as IEnumerable<OperationContent>;
+            if (contents != null)
+                foreach (OperationContent content in contents)
+                    operationSumm += content.Cost;
+            return operationSumm;
+        }*/
+
         private void RefreshStateString()
         {
-            stlOperationCurrentSum.Text = "Покупка на сумму " + Operation.OperationCost;
+            stlOperationCurrentSum.Text = "Покупка на общую сумму " + Operation.OperationCost;
+
+        }
+
+        private void RefreshBindingSource(BindingSource bindingSource)
+        {
+            operationContentBindingSource.MoveNext();   //обновление BindingSource
+            operationContentBindingSource.MovePrevious();
+            RefreshStateString();
         }
         #endregion
 
-        
+
         private void btnAddContent_Click(object sender, EventArgs e)
         {
-            CRUDOperationContent.Create(Operation, cbProductPrice.SelectedItem as ProductPrice, tbProductCount.ValidateText() as decimal? ?? 0, operationContentBindingSource);
+            if (updatedContent == null)
+            {   //добавление нового товара
+                CRUDOperationContent.Create(Operation, cbProductPrice.SelectedItem as ProductPrice, tbProductCount.ValidateText() as decimal? ?? 0, operationContentBindingSource);
+            }
+            else
+            {   //редактирование текущего товара
+                updatedContent.ProductPrice = cbProductPrice.SelectedItem as ProductPrice ?? updatedContent.ProductPrice;
+                updatedContent.Count = tbProductCount.ValidateText() as decimal? ?? updatedContent.Count;
+                RefreshBindingSource(operationContentBindingSource);
+                
+            }
             SetOperationContentData(null, 1);
             cbProductPrice.Select();
             RefreshStateString();
@@ -91,20 +116,15 @@ namespace SalesProject.UI.Forms
         
         private void btnUpdateContent_Click(object sender, EventArgs e)
         {
-            ReadOperationContentData();
+            updatedContent = CurrentContent;
+            if (updatedContent != null)
+            {
+                SetOperationContentData(updatedContent.ProductPrice, updatedContent.Count);
+            }
         }
 
-        private void DeleteCurrentContent()
-        {
-            operationContentBindingSource.RemoveCurrent();
-        }
 
-        private void btnDeleteContent_Click(object sender, EventArgs e)
-        {
-            
-
-        }
-
+        
         private void btnCloseOperation_Click(object sender, EventArgs e)
         {
             DataModelController.Instance.SubmitChanges();
@@ -116,23 +136,28 @@ namespace SalesProject.UI.Forms
             Close();
         }
 
-        private void cbProduct_SelectedIndexChanged(object sender, EventArgs e)
+        private void DeleteCurrentContent()
         {
-
-            //stlOperationCurrentContent.Text = cbProduct.SelectedItem == null ? null : "Товар: " +cbProduct.SelectedItem.ToString()+
+            if (CurrentContent == null)
+                return;
+            operationContentBindingSource.RemoveCurrent();
+            CRUDOperationContent.Delete(CurrentContent);
+            RefreshStateString();
         }
+
+        
 
         private void dgvOperContent_KeyDown(object sender, KeyEventArgs e)
         {
-            MessageBox.Show(e.KeyValue.ToString());
-            if (CurrentContent == null)
-                return;
-
             if (e.KeyValue == (char)Keys.Delete)
             {
-                operationContentBindingSource.RemoveCurrent();
-                CRUDOperationContent.Delete(CurrentContent);
+                DeleteCurrentContent();
             }
+        }
+
+        private void btnDeleteContent_Click(object sender, EventArgs e)
+        {
+            DeleteCurrentContent();
         }
     }
 }
