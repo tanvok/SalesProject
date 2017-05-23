@@ -49,6 +49,7 @@
     <Compile Include="Controlles\CRUDControllers\CRUDOperation.cs" />
     <Compile Include="Controlles\CRUDControllers\CRUDOperationContent.cs" />
     <Compile Include="Controlles\CRUDControllers\CRUDProduct.cs" />
+    <Compile Include="Controlles\CRUDControllers\CRUDProductPrice.cs" />
     <Compile Include="Controlles\DataModelController.cs" />
     <Compile Include="Controlles\GenericController.cs" />
     <Compile Include="Controlles\Interfaces\IModelController.cs" />
@@ -104,6 +105,7 @@
     <None Include="Properties\DataSources\SalesProject.DataModel.Operation.datasource" />
     <None Include="Properties\DataSources\SalesProject.DataModel.OperationContent.datasource" />
     <None Include="Properties\DataSources\SalesProject.DataModel.Product.datasource" />
+    <None Include="Properties\DataSources\SalesProject.DataModel.ProductPrice.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

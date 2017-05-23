@@ -19,10 +19,6 @@ namespace SalesProject.DataModel
             {
                 return ProductPrice.Product;
             }
-            set
-            {
-                ProductPrice = value?.CurrentPrice;
-            }
         }
 
         public decimal Price

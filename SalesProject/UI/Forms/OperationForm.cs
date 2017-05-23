@@ -42,7 +42,7 @@ namespace SalesProject.UI.Forms
         private void LoadFormData()
         {
             Text = Operation.ToString();
-            CRUDProduct.Read(productBindingSource, true);
+            CRUDProductPrice.Read(productPriceBindingSource);
             tbProductCount.ValidatingType = typeof(System.Decimal);
         }
 
@@ -66,7 +66,7 @@ namespace SalesProject.UI.Forms
 
         private void SetOperationContentData(Product product, decimal count)
         {
-            cbProduct.SelectedItem = product?? cbProduct.SelectedItem;
+            cbProductPrice.SelectedItem = product?? cbProductPrice.SelectedItem;
             tbProductCount.Text = count.ToString();
         }
         #endregion
@@ -74,9 +74,9 @@ namespace SalesProject.UI.Forms
 
         private void btnAddContent_Click(object sender, EventArgs e)
         {
-            CRUDOperationContent.Create(Operation, cbProduct.SelectedItem as Product, tbProductCount.ValidateText() as decimal? ?? 0, operationContentBindingSource);
+            CRUDOperationContent.Create(Operation, cbProductPrice.SelectedItem as ProductPrice, tbProductCount.ValidateText() as decimal? ?? 0, operationContentBindingSource);
             SetOperationContentData(null, 1);
-            cbProduct.Select();
+            cbProductPrice.Select();
         }
 
 
@@ -104,6 +104,18 @@ namespace SalesProject.UI.Forms
         private void btnCloseOperation_Click(object sender, EventArgs e)
         {
             DataModelController.Instance.SubmitChanges();
+            Close();
+        }
+
+        private void btnCancelOperation_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void cbProduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            //stlOperationCurrentContent.Text = cbProduct.SelectedItem == null ? null : "Товар: " +cbProduct.SelectedItem.ToString()+
         }
     }
 }

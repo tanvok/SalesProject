@@ -10,7 +10,7 @@ namespace SalesProject.DataModel
     {
         public override string ToString()
         {
-            return Price.ToString("F2") +"р./ " + Product.MeasureSmallString+ " с " + DateBegin.ToShortDateString();
+            return Product.ProductFullName + " (" + Product.CurrentPriceString + ")";
         }
 
         

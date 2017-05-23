@@ -9,18 +9,18 @@ namespace SalesProject.Controlles.CRUDControllers
 {
     static class CRUDOperationContent
     {
-        public static void Create(Operation operation, Product product, decimal productCount, BindingSource bindingSource)
+        public static void Create(Operation operation, ProductPrice productPrice, decimal productCount, BindingSource bindingSource)
         {
             if (operation == null)
                 throw new ArgumentNullException("Продажа.");
-            if (product == null)
+            if (productPrice == null)
                 throw new ArgumentNullException("Товар.");
             if (productCount <= 0)
                 throw new ArgumentNullException("Количество.");
 
             OperationContent newContent = new OperationContent()
             {
-                Product = product,
+                ProductPrice = productPrice,
                 Count = productCount,
                 Operation = operation
             };
