@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvOperContent = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +52,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnCancelOperation = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.stlOperationCurrentContent = new System.Windows.Forms.ToolStripStatusLabel();
+            this.stlOperationCurrentSum = new System.Windows.Forms.ToolStripStatusLabel();
             this.productPriceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOperContent)).BeginInit();
@@ -70,7 +70,7 @@
             this.groupBox1.Controls.Add(this.dgvOperContent);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(668, 232);
+            this.groupBox1.Size = new System.Drawing.Size(667, 207);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Список товаров";
@@ -97,9 +97,10 @@
             this.dgvOperContent.ReadOnly = true;
             this.dgvOperContent.RowHeadersVisible = false;
             this.dgvOperContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOperContent.Size = new System.Drawing.Size(662, 213);
+            this.dgvOperContent.Size = new System.Drawing.Size(661, 188);
             this.dgvOperContent.TabIndex = 6;
             this.dgvOperContent.DoubleClick += new System.EventHandler(this.btnUpdateContent_Click);
+            this.dgvOperContent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvOperContent_KeyDown);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -143,9 +144,9 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Price";
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.HeaderText = "Цена";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -174,9 +175,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(3, 14);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 13);
+            this.label4.Size = new System.Drawing.Size(149, 13);
             this.label4.TabIndex = 19;
-            this.label4.Text = "Название товара:";
+            this.label4.Text = "Название текущего товара:";
             // 
             // cbProductPrice
             // 
@@ -185,14 +186,14 @@
             this.cbProductPrice.FormattingEnabled = true;
             this.cbProductPrice.Location = new System.Drawing.Point(6, 30);
             this.cbProductPrice.Name = "cbProductPrice";
-            this.cbProductPrice.Size = new System.Drawing.Size(469, 21);
+            this.cbProductPrice.Size = new System.Drawing.Size(427, 21);
             this.cbProductPrice.TabIndex = 1;
             this.cbProductPrice.SelectedIndexChanged += new System.EventHandler(this.cbProduct_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(492, 15);
+            this.label1.Location = new System.Drawing.Point(436, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 20;
@@ -200,9 +201,9 @@
             // 
             // btnAddContent
             // 
-            this.btnAddContent.Location = new System.Drawing.Point(356, 68);
+            this.btnAddContent.Location = new System.Drawing.Point(557, 28);
             this.btnAddContent.Name = "btnAddContent";
-            this.btnAddContent.Size = new System.Drawing.Size(84, 23);
+            this.btnAddContent.Size = new System.Drawing.Size(99, 23);
             this.btnAddContent.TabIndex = 3;
             this.btnAddContent.Text = "Ok";
             this.btnAddContent.UseVisualStyleBackColor = true;
@@ -210,7 +211,8 @@
             // 
             // btnUpdateContent
             // 
-            this.btnUpdateContent.Location = new System.Drawing.Point(446, 68);
+            this.btnUpdateContent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnUpdateContent.Location = new System.Drawing.Point(9, 295);
             this.btnUpdateContent.Name = "btnUpdateContent";
             this.btnUpdateContent.Size = new System.Drawing.Size(102, 23);
             this.btnUpdateContent.TabIndex = 6;
@@ -220,7 +222,8 @@
             // 
             // btnDeleteContent
             // 
-            this.btnDeleteContent.Location = new System.Drawing.Point(554, 68);
+            this.btnDeleteContent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDeleteContent.Location = new System.Drawing.Point(117, 295);
             this.btnDeleteContent.Name = "btnDeleteContent";
             this.btnDeleteContent.Size = new System.Drawing.Size(102, 23);
             this.btnDeleteContent.TabIndex = 7;
@@ -230,14 +233,15 @@
             // 
             // tbProductCount
             // 
-            this.tbProductCount.Location = new System.Drawing.Point(495, 31);
+            this.tbProductCount.Location = new System.Drawing.Point(439, 30);
             this.tbProductCount.Name = "tbProductCount";
-            this.tbProductCount.Size = new System.Drawing.Size(158, 20);
+            this.tbProductCount.Size = new System.Drawing.Size(112, 20);
             this.tbProductCount.TabIndex = 2;
             // 
             // btnCloseOperation
             // 
-            this.btnCloseOperation.Location = new System.Drawing.Point(387, 318);
+            this.btnCloseOperation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCloseOperation.Location = new System.Drawing.Point(387, 295);
             this.btnCloseOperation.Name = "btnCloseOperation";
             this.btnCloseOperation.Size = new System.Drawing.Size(133, 23);
             this.btnCloseOperation.TabIndex = 4;
@@ -248,21 +252,20 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tbProductCount);
-            this.groupBox2.Controls.Add(this.btnDeleteContent);
             this.groupBox2.Controls.Add(this.cbProductPrice);
-            this.groupBox2.Controls.Add(this.btnUpdateContent);
             this.groupBox2.Controls.Add(this.btnAddContent);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(3, 217);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(662, 95);
+            this.groupBox2.Size = new System.Drawing.Size(751, 95);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             // 
             // btnCancelOperation
             // 
-            this.btnCancelOperation.Location = new System.Drawing.Point(526, 318);
+            this.btnCancelOperation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCancelOperation.Location = new System.Drawing.Point(526, 295);
             this.btnCancelOperation.Name = "btnCancelOperation";
             this.btnCancelOperation.Size = new System.Drawing.Size(133, 23);
             this.btnCancelOperation.TabIndex = 5;
@@ -273,17 +276,17 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.stlOperationCurrentContent});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 348);
+            this.stlOperationCurrentSum});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 323);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(668, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(667, 22);
             this.statusStrip1.TabIndex = 28;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // stlOperationCurrentContent
+            // stlOperationCurrentSum
             // 
-            this.stlOperationCurrentContent.Name = "stlOperationCurrentContent";
-            this.stlOperationCurrentContent.Size = new System.Drawing.Size(0, 17);
+            this.stlOperationCurrentSum.Name = "stlOperationCurrentSum";
+            this.stlOperationCurrentSum.Size = new System.Drawing.Size(0, 17);
             // 
             // productPriceBindingSource
             // 
@@ -293,10 +296,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 370);
+            this.ClientSize = new System.Drawing.Size(667, 345);
             this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.btnDeleteContent);
             this.Controls.Add(this.btnCancelOperation);
             this.Controls.Add(this.btnCloseOperation);
+            this.Controls.Add(this.btnUpdateContent);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "OperationForm";
@@ -339,7 +344,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnCancelOperation;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel stlOperationCurrentContent;
+        private System.Windows.Forms.ToolStripStatusLabel stlOperationCurrentSum;
         private System.Windows.Forms.BindingSource productPriceBindingSource;
     }
 }

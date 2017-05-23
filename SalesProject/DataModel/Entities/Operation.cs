@@ -12,5 +12,16 @@ namespace SalesProject.DataModel
         {
             return OperationType.OperationTypeName + " №" + DocNumber + " от " + OperationDateTime.ToString() + " (" + OperationState.OperationStateName + ")";
         }
+
+        public decimal OperationCost
+        {
+            get
+            {
+                decimal operationSumm = 0;
+                foreach (OperationContent content in OperationContents)
+                    operationSumm += content.Cost;
+                return operationSumm;
+            }
+        }
     }
 }

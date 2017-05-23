@@ -44,6 +44,8 @@ namespace SalesProject.UI.Forms
             Text = Operation.ToString();
             CRUDProductPrice.Read(productPriceBindingSource);
             tbProductCount.ValidatingType = typeof(System.Decimal);
+            SetOperationContentData(null, 1);
+            RefreshStateString();
         }
 
         public OperationForm(Operation operation)
@@ -69,14 +71,20 @@ namespace SalesProject.UI.Forms
             cbProductPrice.SelectedItem = product?? cbProductPrice.SelectedItem;
             tbProductCount.Text = count.ToString();
         }
+
+        private void RefreshStateString()
+        {
+            stlOperationCurrentSum.Text = "Покупка на сумму " + Operation.OperationCost;
+        }
         #endregion
 
-
+        
         private void btnAddContent_Click(object sender, EventArgs e)
         {
             CRUDOperationContent.Create(Operation, cbProductPrice.SelectedItem as ProductPrice, tbProductCount.ValidateText() as decimal? ?? 0, operationContentBindingSource);
             SetOperationContentData(null, 1);
             cbProductPrice.Select();
+            RefreshStateString();
         }
 
 
@@ -93,11 +101,7 @@ namespace SalesProject.UI.Forms
 
         private void btnDeleteContent_Click(object sender, EventArgs e)
         {
-            if (CurrentContent == null)
-                return;
-
-            operationContentBindingSource.RemoveCurrent();
-            CRUDOperationContent.Delete(CurrentContent);
+            
 
         }
 
@@ -116,6 +120,19 @@ namespace SalesProject.UI.Forms
         {
 
             //stlOperationCurrentContent.Text = cbProduct.SelectedItem == null ? null : "Товар: " +cbProduct.SelectedItem.ToString()+
+        }
+
+        private void dgvOperContent_KeyDown(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show(e.KeyValue.ToString());
+            if (CurrentContent == null)
+                return;
+
+            if (e.KeyValue == (char)Keys.Delete)
+            {
+                operationContentBindingSource.RemoveCurrent();
+                CRUDOperationContent.Delete(CurrentContent);
+            }
         }
     }
 }
