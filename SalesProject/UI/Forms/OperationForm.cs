@@ -47,6 +47,8 @@ namespace SalesProject.UI.Forms
             Text = Operation.ToString();
             CRUDProductPrice.Read(productPriceBindingSource);
             tbProductCount.ValidatingType = typeof(System.Decimal);
+            tbDelivery.ValidatingType = typeof(System.Decimal);
+            tbPayment.ValidatingType = typeof(System.Decimal);
             SetOperationContentData(null, 1);
             RefreshStateString();
         }
@@ -127,6 +129,8 @@ namespace SalesProject.UI.Forms
         
         private void btnCloseOperation_Click(object sender, EventArgs e)
         {
+            if (!OperationController.CloseOperation(Operation, tbPayment.ValidateText() as decimal? ?? 0, tbDelivery.ValidateText() as decimal? ?? 0))
+                return;
             DataModelController.Instance.SubmitChanges();
             Close();
         }
@@ -158,6 +162,11 @@ namespace SalesProject.UI.Forms
         private void btnDeleteContent_Click(object sender, EventArgs e)
         {
             DeleteCurrentContent();
+        }
+
+        private void tbPayment_Validated(object sender, EventArgs e)
+        {
+            
         }
     }
 }

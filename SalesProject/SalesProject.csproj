@@ -54,6 +54,7 @@
     <Compile Include="Controlles\GenericController.cs" />
     <Compile Include="Controlles\Interfaces\IModelController.cs" />
     <Compile Include="Controlles\MagicNumberController.cs" />
+    <Compile Include="Controlles\OperationController.cs" />
     <Compile Include="DataModel\ContextDecorator.cs" />
     <Compile Include="DataModel\DataModel.designer.cs">
       <AutoGen>True</AutoGen>
