@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvOperContent = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,7 +72,7 @@
             this.groupBox1.Controls.Add(this.dgvOperContent);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(667, 251);
+            this.groupBox1.Size = new System.Drawing.Size(735, 246);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Список товаров";
@@ -99,7 +99,7 @@
             this.dgvOperContent.ReadOnly = true;
             this.dgvOperContent.RowHeadersVisible = false;
             this.dgvOperContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOperContent.Size = new System.Drawing.Size(661, 232);
+            this.dgvOperContent.Size = new System.Drawing.Size(729, 227);
             this.dgvOperContent.TabIndex = 6;
             this.dgvOperContent.DoubleClick += new System.EventHandler(this.btnUpdateContent_Click);
             this.dgvOperContent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvOperContent_KeyDown);
@@ -146,9 +146,9 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Price";
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn1.HeaderText = "Цена";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -206,9 +206,10 @@
             // 
             // btnAddContent
             // 
-            this.btnAddContent.Location = new System.Drawing.Point(557, 28);
+            this.btnAddContent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddContent.Location = new System.Drawing.Point(627, 28);
             this.btnAddContent.Name = "btnAddContent";
-            this.btnAddContent.Size = new System.Drawing.Size(99, 23);
+            this.btnAddContent.Size = new System.Drawing.Size(101, 23);
             this.btnAddContent.TabIndex = 3;
             this.btnAddContent.Text = "Ok";
             this.btnAddContent.UseVisualStyleBackColor = true;
@@ -216,17 +217,19 @@
             // 
             // tbProductCount
             // 
+            this.tbProductCount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbProductCount.Location = new System.Drawing.Point(439, 30);
             this.tbProductCount.Name = "tbProductCount";
-            this.tbProductCount.Size = new System.Drawing.Size(112, 20);
+            this.tbProductCount.Size = new System.Drawing.Size(183, 20);
             this.tbProductCount.TabIndex = 2;
             // 
             // btnCloseOperation
             // 
             this.btnCloseOperation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCloseOperation.Location = new System.Drawing.Point(421, 312);
+            this.btnCloseOperation.Location = new System.Drawing.Point(394, 306);
             this.btnCloseOperation.Name = "btnCloseOperation";
-            this.btnCloseOperation.Size = new System.Drawing.Size(114, 23);
+            this.btnCloseOperation.Size = new System.Drawing.Size(147, 23);
             this.btnCloseOperation.TabIndex = 4;
             this.btnCloseOperation.Text = "Закрыть продажу";
             this.btnCloseOperation.UseVisualStyleBackColor = true;
@@ -234,20 +237,23 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.tbProductCount);
             this.groupBox2.Controls.Add(this.cbProductPrice);
             this.groupBox2.Controls.Add(this.btnAddContent);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(3, 240);
+            this.groupBox2.Location = new System.Drawing.Point(3, 233);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(751, 60);
+            this.groupBox2.Size = new System.Drawing.Size(822, 63);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             // 
             // tbPayment
             // 
-            this.tbPayment.Location = new System.Drawing.Point(70, 313);
+            this.tbPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbPayment.Location = new System.Drawing.Point(70, 306);
             this.tbPayment.Name = "tbPayment";
             this.tbPayment.Size = new System.Drawing.Size(112, 20);
             this.tbPayment.TabIndex = 21;
@@ -255,10 +261,11 @@
             // 
             // btnCancelOperation
             // 
-            this.btnCancelOperation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCancelOperation.Location = new System.Drawing.Point(541, 312);
+            this.btnCancelOperation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelOperation.Location = new System.Drawing.Point(547, 305);
             this.btnCancelOperation.Name = "btnCancelOperation";
-            this.btnCancelOperation.Size = new System.Drawing.Size(118, 23);
+            this.btnCancelOperation.Size = new System.Drawing.Size(182, 23);
             this.btnCancelOperation.TabIndex = 5;
             this.btnCancelOperation.Text = "Отменить продажу";
             this.btnCancelOperation.UseVisualStyleBackColor = true;
@@ -268,9 +275,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stlOperationCurrentSum});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 340);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 335);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(667, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(735, 22);
             this.statusStrip1.TabIndex = 28;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -281,8 +288,9 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 316);
+            this.label2.Location = new System.Drawing.Point(6, 313);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 21;
@@ -290,8 +298,9 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(207, 314);
+            this.label3.Location = new System.Drawing.Point(207, 313);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 29;
@@ -299,7 +308,8 @@
             // 
             // tbDelivery
             // 
-            this.tbDelivery.Location = new System.Drawing.Point(253, 313);
+            this.tbDelivery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbDelivery.Location = new System.Drawing.Point(253, 307);
             this.tbDelivery.Name = "tbDelivery";
             this.tbDelivery.ReadOnly = true;
             this.tbDelivery.Size = new System.Drawing.Size(121, 20);
@@ -309,7 +319,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 362);
+            this.ClientSize = new System.Drawing.Size(735, 357);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbDelivery);
             this.Controls.Add(this.label2);

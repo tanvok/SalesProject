@@ -44,6 +44,14 @@ namespace SalesProject.DataModel
             }
         }
 
+        public bool CanBeDecimalCount
+        {
+            get
+            {
+                return !(Size > 0);
+            }
+        }
+
 
         public string CurrentPriceString
         {

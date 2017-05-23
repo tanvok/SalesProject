@@ -51,6 +51,11 @@ namespace SalesProject.UI.Forms
             tbPayment.ValidatingType = typeof(System.Decimal);
             SetOperationContentData(null, 1);
             RefreshStateString();
+            if (Operation.id > 0)
+            {
+                btnCloseOperation.Text = "Отменить изменения";
+                btnCancelOperation.Text = "Сохранить изменения";
+            }
         }
 
         public OperationForm(Operation operation)
@@ -71,20 +76,16 @@ namespace SalesProject.UI.Forms
             tbProductCount.Text = count.ToString();
         }
 
-        /*private decimal? GetOperationCost()
-        {
-            decimal operationSumm = 0;
-            IEnumerable<OperationContent> contents = operationContentBindingSource.DataSource as IEnumerable<OperationContent>;
-            if (contents != null)
-                foreach (OperationContent content in contents)
-                    operationSumm += content.Cost;
-            return operationSumm;
-        }*/
+        
 
         private void RefreshStateString()
         {
-            stlOperationCurrentSum.Text = "Покупка на общую сумму " + Operation.OperationCost;
-
+            stlOperationCurrentSum.Text = "Покупка на общую сумму " + Operation.OperationCost.ToString("F2");
+            if ((tbPayment.Text == null) || (tbPayment.Text == "") || ((tbPayment.ValidateText() as decimal? ?? 0) <= Operation.OperationCost))
+            {
+                tbPayment.Text = Operation.OperationCost.ToString("F2");
+                tbPayment_Validated(null, null);
+            }
         }
 
         private void RefreshBindingSource(BindingSource bindingSource)
@@ -98,6 +99,9 @@ namespace SalesProject.UI.Forms
 
         private void btnAddContent_Click(object sender, EventArgs e)
         {
+            if (!OperationController.CheckProductCount(cbProductPrice.SelectedItem as ProductPrice, tbProductCount.ValidateText() as decimal? ?? 0))
+                return;
+
             if (updatedContent == null)
             {   //добавление нового товара
                 CRUDOperationContent.Create(Operation, cbProductPrice.SelectedItem as ProductPrice, tbProductCount.ValidateText() as decimal? ?? 0, operationContentBindingSource);
@@ -136,6 +140,7 @@ namespace SalesProject.UI.Forms
 
         private void btnCancelOperation_Click(object sender, EventArgs e)
         {
+            DataModelController.Instance.DeleteModel();
             Close();
         }
 
@@ -167,7 +172,7 @@ namespace SalesProject.UI.Forms
 
         private void tbPayment_Validated(object sender, EventArgs e)
         {
-            tbDelivery.Text = (OperationController.CalcDelivery(Operation, tbPayment.ValidateText() as decimal? ?? 0)).ToString();
+            tbDelivery.Text = (OperationController.CalcDelivery(Operation, tbPayment.ValidateText() as decimal? ?? 0)).ToString("F2");
         }
     }
 }

@@ -17,6 +17,16 @@ namespace SalesProject.Controlles
             return payment - operation.OperationCost;
         }
 
+        public static bool CheckProductCount(ProductPrice productPrice, decimal productCount)
+        {
+            if ((productCount != Decimal.Ceiling(productCount)) && (!productPrice.Product.CanBeDecimalCount))
+            {
+                MessageBox.Show("Количество выбранного товара может быть только целым числом.", "ИС \"Продажи\"");
+                return false;
+            }
+            return true;
+        }
+
 
         #region OperationMethods
         public static bool CloseOperation(Operation operation, decimal payment, decimal delivery)
