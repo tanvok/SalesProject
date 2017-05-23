@@ -51,19 +51,17 @@ namespace SalesProject
 
         private void tsbAddOperation_Click(object sender, EventArgs e)
         {
-            CRUDOperation.Create();
-            LoadOperations();
+            CRUDOperation.Create(operationBindingSource);
         }
 
         private void operationBindingSource_PositionChanged(object sender, EventArgs e)
         {
-
             CRUDOperationContent.Read(operationContentBindingSource, CurrentOperation);
         }
 
-        private void EditEmployeeBtn_Click(object sender, EventArgs e)
+        private void EditOperationBtn_Click(object sender, EventArgs e)
         {
-            LoadOperations();
+            CRUDOperation.Update(CurrentOperation, operationBindingSource);
         }
     }
 }

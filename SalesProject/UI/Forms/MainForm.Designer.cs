@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -47,8 +47,8 @@
             this.dgvOperations = new System.Windows.Forms.DataGridView();
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.tsbAddOperation = new System.Windows.Forms.ToolStripButton();
-            this.EditEmployeeBtn = new System.Windows.Forms.ToolStripButton();
-            this.DelEmployeeBtn = new System.Windows.Forms.ToolStripButton();
+            this.EditOperationBtn = new System.Windows.Forms.ToolStripButton();
+            this.DelOperationBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.tpProducts = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -265,8 +265,8 @@
             // 
             this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbAddOperation,
-            this.EditEmployeeBtn,
-            this.DelEmployeeBtn,
+            this.EditOperationBtn,
+            this.DelOperationBtn,
             this.toolStripSeparator5,
             this.toolStripButton5});
             this.toolStrip5.Location = new System.Drawing.Point(0, 0);
@@ -284,22 +284,22 @@
             this.tsbAddOperation.ToolTipText = "Добавить продажу";
             this.tsbAddOperation.Click += new System.EventHandler(this.tsbAddOperation_Click);
             // 
-            // EditEmployeeBtn
+            // EditOperationBtn
             // 
-            this.EditEmployeeBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.EditEmployeeBtn.Name = "EditEmployeeBtn";
-            this.EditEmployeeBtn.Size = new System.Drawing.Size(91, 21);
-            this.EditEmployeeBtn.Text = "Редактировать";
-            this.EditEmployeeBtn.ToolTipText = "Редактировать продажу";
-            this.EditEmployeeBtn.Click += new System.EventHandler(this.EditEmployeeBtn_Click);
+            this.EditOperationBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.EditOperationBtn.Name = "EditOperationBtn";
+            this.EditOperationBtn.Size = new System.Drawing.Size(91, 21);
+            this.EditOperationBtn.Text = "Редактировать";
+            this.EditOperationBtn.ToolTipText = "Редактировать продажу";
+            this.EditOperationBtn.Click += new System.EventHandler(this.EditOperationBtn_Click);
             // 
-            // DelEmployeeBtn
+            // DelOperationBtn
             // 
-            this.DelEmployeeBtn.ImageTransparentColor = System.Drawing.Color.Black;
-            this.DelEmployeeBtn.Name = "DelEmployeeBtn";
-            this.DelEmployeeBtn.Size = new System.Drawing.Size(55, 21);
-            this.DelEmployeeBtn.Text = "Удалить";
-            this.DelEmployeeBtn.ToolTipText = "Удалить  продажу";
+            this.DelOperationBtn.ImageTransparentColor = System.Drawing.Color.Black;
+            this.DelOperationBtn.Name = "DelOperationBtn";
+            this.DelOperationBtn.Size = new System.Drawing.Size(55, 21);
+            this.DelOperationBtn.Text = "Удалить";
+            this.DelOperationBtn.ToolTipText = "Удалить  продажу";
             // 
             // toolStripSeparator5
             // 
@@ -433,9 +433,9 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Price";
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn2.HeaderText = "Цена";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -670,8 +670,8 @@
         private System.Windows.Forms.ToolStripMenuItem создатьПродажуToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ToolStrip toolStrip5;
-        private System.Windows.Forms.ToolStripButton EditEmployeeBtn;
-        private System.Windows.Forms.ToolStripButton DelEmployeeBtn;
+        private System.Windows.Forms.ToolStripButton EditOperationBtn;
+        private System.Windows.Forms.ToolStripButton DelOperationBtn;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView dataGridView1;
