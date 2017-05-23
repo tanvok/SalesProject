@@ -40,6 +40,8 @@ namespace SalesProject.DataModel
                 return Count * Price;
             }
         }
+
+        
         #endregion
     }
 }

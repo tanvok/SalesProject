@@ -43,5 +43,22 @@ namespace SalesProject.DataModel
                 return Size > 0 ? "шт" : MeasureType.MeasureTypeSmallName;
             }
         }
-    }
+
+
+        public string CurrentPriceString
+        {
+            get
+            {
+                return CurrentPrice == null ? null : CurrentPrice?.Price.ToString("F2") + " р./ " + MeasureSmallString;
+            }
+        }
+
+        public string CurrentPriceDateBeginString
+        {
+            get
+            {
+                return CurrentPrice?.DateBegin.ToShortDateString();
+            }
+        }
+}
 }
