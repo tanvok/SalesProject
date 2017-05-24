@@ -50,9 +50,9 @@
     <Compile Include="Controlles\CRUDControllers\CRUDOperationContent.cs" />
     <Compile Include="Controlles\CRUDControllers\CRUDProduct.cs" />
     <Compile Include="Controlles\CRUDControllers\CRUDProductPrice.cs" />
-    <Compile Include="Controlles\DataModelController.cs" />
-    <Compile Include="Controlles\GenericController.cs" />
-    <Compile Include="Controlles\Interfaces\IModelController.cs" />
+    <Compile Include="Controlles\DataModelControllers\DataModelController.cs" />
+    <Compile Include="Controlles\DataModelControllers\GenericDataModelController.cs" />
+    <Compile Include="Controlles\DataModelControllers\IModelController.cs" />
     <Compile Include="Controlles\MagicNumberController.cs" />
     <Compile Include="Controlles\OperationController.cs" />
     <Compile Include="DataModel\ContextDecorator.cs" />

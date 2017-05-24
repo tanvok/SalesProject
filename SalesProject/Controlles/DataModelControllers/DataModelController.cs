@@ -4,15 +4,15 @@ using System.Diagnostics;
 using System.Linq;
 using System.Data.Linq;
 using SalesProject.DataModel;
-using SalesProject.Controlles.Interfaces;
+
 
 
 /// <summary>
-/// основной контроллер-одиночка приложения, через который прозводится доступ к базе данных
+/// контроллер, через который прозводится доступ к базе данных
 /// </summary>
 namespace SalesProject.Controlles
 {
-    class DataModelController: GenericController<ContextDecorator>
+    class DataModelController: GenericDataModelController<ContextDecorator>
     {
         private static DataModelController instance;
 
@@ -97,7 +97,7 @@ namespace SalesProject.Controlles
 namespace Kadr.Controllers
 {
 
-    public class KadrController : UIX.Controllers.GenericController<ContextDecorator>
+    public class KadrController : UIX.Controllers.GenericDataModelController<ContextDecorator>
     {
 
         /// <summary>

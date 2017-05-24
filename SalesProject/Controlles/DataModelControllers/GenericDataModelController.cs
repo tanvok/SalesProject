@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SalesProject.Controlles.Interfaces;
+
 
 namespace SalesProject.Controlles
 {
-    class GenericController<TModel>: IModelController<TModel> where TModel : /*System.ComponentModel.INotifyPropertyChanged,*/ new()
+    /// <summary>
+    /// Базовый контроллер для работы с моделью
+    /// </summary>
+    /// <typeparam name="TModel"></typeparam>
+    class GenericDataModelController<TModel>: IModelController<TModel> where TModel : /*System.ComponentModel.INotifyPropertyChanged,*/ new()
     {
         private TModel model = default(TModel);
 
