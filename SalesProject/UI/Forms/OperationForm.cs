@@ -31,6 +31,9 @@ namespace SalesProject.UI.Forms
             }
         }
 
+        /// <summary>
+        /// используется для редактирования записи Content
+        /// </summary>
         private OperationContent updatedContent = null;
 
 
@@ -53,8 +56,10 @@ namespace SalesProject.UI.Forms
             RefreshStateString();
             if (Operation.id > 0)
             {
-                btnCloseOperation.Text = "Отменить изменения";
-                btnCancelOperation.Text = "Сохранить изменения";
+                btnCloseOperation.Text = "Сохранить изменения";
+                btnCancelOperation.Text = "Отменить изменения";
+                tbPayment.Text = Operation.Payment.ToString();
+                tbDelivery.Text = Operation.Delivery.ToString();
             }
         }
 
@@ -66,26 +71,15 @@ namespace SalesProject.UI.Forms
             LoadOperationContent();
         }
 
-        #endregion
-
-        #region SmallMethods
-        
-        private void SetOperationContentData(ProductPrice productPrice, decimal count)
-        {
-            cbProductPrice.SelectedItem = productPrice ?? cbProductPrice.SelectedItem;
-            tbProductCount.Text = count.ToString();
-        }
-
-        
-
+ 
         private void RefreshStateString()
         {
             stlOperationCurrentSum.Text = "Покупка на общую сумму " + Operation.OperationCost.ToString("F2");
             if ((tbPayment.Text == null) || (tbPayment.Text == "") || ((tbPayment.ValidateText() as decimal? ?? 0) <= Operation.OperationCost))
             {
                 tbPayment.Text = Operation.OperationCost.ToString("F2");
-                tbPayment_Validated(null, null);
             }
+            CalcDelivery();
         }
 
         private void RefreshBindingSource(BindingSource bindingSource)
@@ -96,6 +90,13 @@ namespace SalesProject.UI.Forms
         }
         #endregion
 
+
+        #region OperationContentMethods
+        private void SetOperationContentData(ProductPrice productPrice, decimal count)
+        {
+            cbProductPrice.SelectedItem = productPrice ?? cbProductPrice.SelectedItem;
+            tbProductCount.Text = count.ToString();
+        }
 
         private void btnAddContent_Click(object sender, EventArgs e)
         {
@@ -128,22 +129,6 @@ namespace SalesProject.UI.Forms
             }
         }
 
-
-        
-        private void btnCloseOperation_Click(object sender, EventArgs e)
-        {
-            if (!OperationController.CloseOperation(Operation, tbPayment.ValidateText() as decimal? ?? 0, tbDelivery.ValidateText() as decimal? ?? 0))
-                return;
-            DataModelController.Instance.SubmitChanges();
-            Close();
-        }
-
-        private void btnCancelOperation_Click(object sender, EventArgs e)
-        {
-            DataModelController.Instance.DeleteModel();
-            Close();
-        }
-
         private void DeleteCurrentContent()
         {
             OperationContent deletedContent = CurrentContent;
@@ -154,8 +139,6 @@ namespace SalesProject.UI.Forms
             deletedContent.IsDeleted = true;
             RefreshStateString();
         }
-
-        
 
         private void dgvOperContent_KeyDown(object sender, KeyEventArgs e)
         {
@@ -170,9 +153,33 @@ namespace SalesProject.UI.Forms
             DeleteCurrentContent();
         }
 
+        #endregion
+
+        #region OperationData
+        private void btnCloseOperation_Click(object sender, EventArgs e)
+        {
+            if (!OperationController.CloseOperation(Operation, tbPayment.ValidateText() as decimal? ?? 0, tbDelivery.ValidateText() as decimal? ?? 0))
+                return;
+            DataModelController.Instance.SubmitChanges();
+            Close();
+        }
+
+        private void btnCancelOperation_Click(object sender, EventArgs e)
+        {
+            DataModelController.Instance.DeleteModel();
+            Close();
+        }
+
         private void tbPayment_Validated(object sender, EventArgs e)
+        {
+            CalcDelivery();
+        }
+
+        private void CalcDelivery()
         {
             tbDelivery.Text = (OperationController.CalcDelivery(Operation, tbPayment.ValidateText() as decimal? ?? 0)).ToString("F2");
         }
+
+        #endregion
     }
 }
