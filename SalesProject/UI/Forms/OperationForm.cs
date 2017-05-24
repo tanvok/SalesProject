@@ -101,7 +101,10 @@ namespace SalesProject.UI.Forms
         private void btnAddContent_Click(object sender, EventArgs e)
         {
             if (!OperationController.CheckProductCount(cbProductPrice.SelectedItem as ProductPrice, tbProductCount.ValidateText() as decimal? ?? 0))
+            {
+                tbProductCount.Text = decimal.Floor(tbProductCount.ValidateText() as decimal? ?? 0).ToString();
                 return;
+            }
 
             if (updatedContent == null)
             {   //добавление нового товара

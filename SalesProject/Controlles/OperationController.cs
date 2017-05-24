@@ -10,6 +10,12 @@ namespace SalesProject.Controlles
 {
     static class OperationController
     {
+        /// <summary>
+        /// расчет суммы сдачи
+        /// </summary>
+        /// <param name="operation"></param>
+        /// <param name="payment"></param>
+        /// <returns></returns>
         public static decimal CalcDelivery(Operation operation, decimal payment)
         {
             if ((payment <= 0) || (operation == null))
@@ -17,6 +23,12 @@ namespace SalesProject.Controlles
             return payment - operation.OperationCost;
         }
 
+        /// <summary>
+        /// проверка количества продукта
+        /// </summary>
+        /// <param name="productPrice"></param>
+        /// <param name="productCount"></param>
+        /// <returns></returns>
         public static bool CheckProductCount(ProductPrice productPrice, decimal productCount)
         {
             if ((productCount != Decimal.Ceiling(productCount)) && (!productPrice.Product.CanBeDecimalCount))
@@ -29,6 +41,7 @@ namespace SalesProject.Controlles
 
 
         #region OperationMethods
+
         public static bool CloseOperation(Operation operation, decimal payment, decimal delivery)
         {
             if (operation == null)
