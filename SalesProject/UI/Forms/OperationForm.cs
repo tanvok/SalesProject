@@ -13,6 +13,11 @@ using SalesProject.Controlles.CRUDControllers;
 
 namespace SalesProject.UI.Forms
 {
+    /// <summary>
+    /// Форма для работы с продажей (добавление/редактирование)
+    /// Редактировать товар можно по двойному клику левой клавишей мыши по нему в таблице
+    /// Удалить товар можно нажав на Delete по нему в таблице
+    /// </summary>
     public partial class OperationForm : Form
     {
         /// <summary>
@@ -23,6 +28,9 @@ namespace SalesProject.UI.Forms
             get; set;
         }
 
+        /// <summary>
+        /// текущая строка с товаром
+        /// </summary>
         private OperationContent CurrentContent
         {
             get
@@ -32,7 +40,7 @@ namespace SalesProject.UI.Forms
         }
 
         /// <summary>
-        /// используется для редактирования записи Content
+        /// строка с товаром, которая используется для редактирования записи Content
         /// </summary>
         private OperationContent updatedContent = null;
 
@@ -40,11 +48,17 @@ namespace SalesProject.UI.Forms
 
         #region LoadData
 
+        /// <summary>
+        /// загрузка списка товаров
+        /// </summary>
         private void LoadOperationContent()
         {
             CRUDOperationContent.Read(operationContentBindingSource, Operation);
         }
 
+        /// <summary>
+        /// загрузка основных данных для формы
+        /// </summary>
         private void LoadFormData()
         {
             Text = Operation.ToString();
@@ -71,7 +85,9 @@ namespace SalesProject.UI.Forms
             LoadOperationContent();
         }
 
- 
+        /// <summary>
+        /// обновление строки состояния (с суммой продажи)
+        /// </summary>
         private void RefreshStateString()
         {
             stlOperationCurrentSum.Text = "Покупка на общую сумму " + Operation.OperationCost.ToString("F2");
@@ -82,6 +98,10 @@ namespace SalesProject.UI.Forms
             CalcDelivery();
         }
 
+        /// <summary>
+        /// обновление списка товаров
+        /// </summary>
+        /// <param name="bindingSource"></param>
         private void RefreshBindingSource(BindingSource bindingSource)
         {
             operationContentBindingSource.MoveNext();   //обновление BindingSource
@@ -98,6 +118,11 @@ namespace SalesProject.UI.Forms
             tbProductCount.Text = count.ToString();
         }
 
+        /// <summary>
+        /// Добавление/редактирование текущего товара
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddContent_Click(object sender, EventArgs e)
         {
             if (!OperationController.CheckProductCount(cbProductPrice.SelectedItem as ProductPrice, tbProductCount.ValidateText() as decimal? ?? 0))
@@ -122,7 +147,11 @@ namespace SalesProject.UI.Forms
         }
 
 
-        
+        /// <summary>
+        /// редактирование текущего товара
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdateContent_Click(object sender, EventArgs e)
         {
             updatedContent = CurrentContent;
@@ -132,6 +161,9 @@ namespace SalesProject.UI.Forms
             }
         }
 
+        /// <summary>
+        /// удаление текущего товара
+        /// </summary>
         private void DeleteCurrentContent()
         {
             OperationContent deletedContent = CurrentContent;

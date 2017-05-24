@@ -12,9 +12,15 @@ using SalesProject.DataModel;
 
 namespace SalesProject
 {
+    /// <summary>
+    /// Основная форма приложения.
+    /// Реализоавно добавление и редактирование продажи. Остальные кнопки не работают.
+    /// </summary>
     public partial class MainForm : Form
     {
-
+        /// <summary>
+        /// текущая операция / продажа
+        /// </summary>
         private Operation CurrentOperation
         {
             get

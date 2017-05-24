@@ -7,6 +7,9 @@ using SalesProject.DataModel;
 
 namespace SalesProject.Controlles
 {
+    /// <summary>
+    /// контроллер для получения экземпляров данных по справочникам
+    /// </summary>
     static class MagicNumberController
     {
         public static OperationType SaleOperationType

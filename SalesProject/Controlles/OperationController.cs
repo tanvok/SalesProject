@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace SalesProject.Controlles
 {
+    /// <summary>
+    /// контроллер для работы с контретной операцией (продажей)
+    /// </summary>
     static class OperationController
     {
         /// <summary>
